@@ -56,7 +56,10 @@ header a {
 
 input[type=text] {
     padding: 0.5rem;
+}
 
+input {
+    border-radius: 10px;
 }
 
 button {
@@ -67,7 +70,6 @@ button {
 }
 
 .container-menu {
-    padding: 1rem;
     background-color: var(--ter);
 }
 
@@ -95,6 +97,19 @@ button {
 main {
     margin: 1rem;
     padding: 1rem;
+}
+
+.container-sobre {
+    background-color: var(--ter);
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section{
+    margin: 1rem;
+    text-align: center;
 }
 
 footer {
