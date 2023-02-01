@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+:root {
+    --pri: #1e1e2c;
+    --sec: #2d2d44;
+    --ter: #105256;
+    --qua: #74226C;
+    --qui: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--pri);
+    display: flex;
+    flex-direction: column;
+    color: var(--qui);
+}
+
+header {
+    background-color: var(--ter);
+    height: 15rem;
+    color: var(--qui);
+}
+
+header a {
+    color: var(--qui);
+}
+
+.imagem-branca {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(187deg) brightness(104%) contrast(104%);
+
+}
+
+.container-logo {
+    width: 10%;
+}
+
+.container-logo-busca-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 1rem;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+}
+
+input[type=text] {
+    padding: 0.5rem;
+
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--qui);
+}
+
+.container-menu {
+    padding: 1rem;
+    background-color: var(--ter);
+}
+
+.container-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.container-menu a {
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--qui);
+}
+
+.container-menu li {
+    margin: 1rem;
+}
+
+.container-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+footer {
+    min-height: 10rem;
+    background-color: var(--ter);
+    color: var(--qui);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
