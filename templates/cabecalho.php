@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/global_news/css/carrossel.css">
     <link rel="stylesheet" href="/global_news/css/cards.css">
     <link rel="stylesheet" href="/global_news/css/dropdown.css">
+    <link rel="stylesheet" href="/global_news/css/table.css">
 
 </head>
 
@@ -34,7 +35,7 @@
             </form>
 
             <div>
-                <a href="">
+                <a href="/global_news/views/admin/login.php">
                     <span class="material-symbols-outlined">login</span>
                 </a>
             </div>
@@ -47,11 +48,9 @@
                 </li>
                 <li>
                     <div class="dropdown">
-                        <a href="/global_news/views/categorias.php">Categorias</a>
+                        <a>Categorias</a>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="/global_news/views/categorias.php?cat=#">Link 1</a>
                         </div>
                     </div>
                 </li>

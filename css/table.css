@@ -1,0 +1,21 @@
+.container-table{
+    overflow-x: auto;
+    background-color: var(--ter);
+}
+
+caption {
+    font-size: xx-large;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid var(--qui);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+}
