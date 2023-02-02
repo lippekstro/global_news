@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/db/conexao.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

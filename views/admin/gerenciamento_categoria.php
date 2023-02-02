@@ -8,7 +8,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
         <tr>
             <th>Nome</th>
             <th colspan="2">
-                <a href="">
+                <a href="/global_news/views/admin/cadastrar_categoria.php">
                     <span class="material-symbols-outlined">add</span>
                 </a>
             </th>
