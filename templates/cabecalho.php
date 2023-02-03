@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/db/conexao.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/categoria.php';
+session_start();
 
 try {
     $lista_categorias = Categoria::listar();
@@ -46,17 +47,25 @@ try {
                 </div>
             </form>
 
-            <div class="dropdown">
+            <?php if (!isset($_SESSION['usuario']['nome_usuario'])) : ?>
                 <a href="/global_news/views/admin/login.php">
                     <span class="material-symbols-outlined">login</span>
                 </a>
-                <div class="dropdown-content">
-                    <a href="/global_news/views/admin/gerenciamento_categoria.php">Gerenciamento de Categorias</a>
-                    <a href="/global_news/views/admin/gerenciamento_post.php">Gerenciamento de Postagens</a>
-                    <a href="/global_news/views/admin/gerenciamento_usuario.php">Gerenciamento de Usuários</a>
-                    <a href="/global_news/views/admin/logout.php">Logout</a>
+            <?php else : ?>
+                <div class="dropdown">
+                    <div class="form-item">
+                        <span><?= $_SESSION['usuario']['nome_usuario'] ?></span>
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <a href="/global_news/views/admin/gerenciamento_categoria.php">Gerenciamento de Categorias</a>
+                        <a href="/global_news/views/admin/gerenciamento_post.php">Gerenciamento de Postagens</a>
+                        <a href="/global_news/views/admin/gerenciamento_usuario.php">Gerenciamento de Usuários</a>
+                        <a href="/global_news/controllers/logout_controller.php">Logout</a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
 
         <nav class="container-menu">

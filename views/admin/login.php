@@ -1,15 +1,20 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+
+if(isset($_SESSION['usuario'])){
+    header('location: /global_news/index.php');
+}
+
 ?>
 
 <div class="container-login">
     <section class="section-form">
-        <form action="login_controller.php" method="post">
+        <form action="/global_news/controllers/login_controller.php" method="post">
             <div class="form-item">
-                <label for="usuario">
-                    <span class="material-symbols-outlined">person</span>
+                <label for="email">
+                    <span class="material-symbols-outlined">email</span>
                 </label>
-                <input type="text" name="usuario" id="usuario" placeholder="Usuário">
+                <input type="email" name="email" id="email" placeholder="E-Mail">
             </div>
 
             <div class="form-item">
