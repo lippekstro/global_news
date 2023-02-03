@@ -9,6 +9,7 @@ caption {
 
 table {
     width: 100%;
+    text-align: center;
 }
 
 table, th, td {

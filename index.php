@@ -38,14 +38,24 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
                         <div class="container">
                             <h4><b>John Doe</b></h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Libero, molestiae? Deleniti quam fugiat explicabo rem quo veritatis hic nam est ratione eius. 
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Libero, molestiae? Deleniti quam fugiat explicabo rem quo veritatis hic nam est ratione eius.
                                 Autem temporibus, at officiis iste reprehenderit atque odit?
                             </p>
                         </div>
                     </a>
                 </div>
             <?php endfor; ?>
+        </div>
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
         </div>
     </section>
 </div>
