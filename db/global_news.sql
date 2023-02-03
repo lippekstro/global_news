@@ -1,6 +1,6 @@
 create table usuario (
 id_usuario int not null auto_increment,
-nome varchar(200) not null,
+nome_usuario varchar(200) not null,
 email varchar(200) not null,
 senha varchar(200) not null,
 nivel_acesso int not null default 1,

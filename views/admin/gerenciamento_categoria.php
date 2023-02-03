@@ -1,5 +1,12 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/categoria.php';
+
+try {
+    $lista = Categoria::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 ?>
 
 <section class="container-table">
@@ -14,21 +21,21 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
             </th>
         </tr>
 
-        <?php for ($i = 0; $i < 4; $i++) : ?>
+        <?php foreach ($lista as $categoria) : ?>
             <tr>
-                <td>Locais</td>
+                <td><?= $categoria['nome_categoria'] ?></td>
                 <td>
-                    <a href="/global_news/views/admin/editar_categoria.php?id_categoria=#">
+                    <a href="/global_news/views/admin/editar_categoria.php?id_categoria=<?= $categoria['id_categoria'] ?>">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
                 </td>
                 <td>
-                    <a href="/global_news/controllers/deleta_categoria_controller.php?id_categoria=#">
+                    <a href="/global_news/controllers/deleta_categoria_controller.php?id_categoria=<?= $categoria['id_categoria'] ?>">
                         <span class="material-symbols-outlined">delete</span>
                     </a>
                 </td>
             </tr>
-        <?php endfor; ?>
+        <?php endforeach; ?>
     </table>
 </section>
 

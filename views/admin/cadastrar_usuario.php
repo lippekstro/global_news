@@ -4,13 +4,13 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 
 <div class="container-cadastro-cat">
     <h1>Cadastro de Usuario</h1>
-    <form action="adiciona_usuario_controller.php" method="post">
+    <form action="/global_news/controllers/adiciona_usuario_controller.php" method="post">
         <div class="row">
             <div class="col-25">
-                <label for="nome">Nome</label>
+                <label for="nome_usuario">Nome</label>
             </div>
             <div class="col-75">
-                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Nome" required>
             </div>
         </div>
         <div class="row">

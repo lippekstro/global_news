@@ -65,7 +65,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         order by p.data_pub desc";
@@ -80,7 +80,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         order by p.data_pub desc limit 3";
@@ -95,7 +95,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         where p.id_categoria = :categoria";
@@ -112,7 +112,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         where p.id_post = :id";
@@ -129,7 +129,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         where p.id_usuario = :id";
@@ -161,7 +161,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         where p.titulo like :palavra";
@@ -179,7 +179,7 @@ class Postagem
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
         p.id_categoria, p.id_post,
         c.nome_categoria as nome_categoria,
-        u.nome as nome_autor from postagem p
+        u.nome_usuario as nome_autor from postagem p
         inner join categoria c on p.id_categoria = c.id_categoria
         inner join usuario u on p.id_usuario = u.id_usuario
         where p.titulo like :palavra and p.id_usuario = :id ";

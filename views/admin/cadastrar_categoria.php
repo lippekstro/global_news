@@ -4,7 +4,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 
 <div class="container-cadastro-cat">
     <h1>Cadastro de Categoria</h1>
-    <form action="adiciona_categoria_controller.php" method="post">
+    <form action="/global_news/controllers/adiciona_categoria_controller.php" method="post">
         <div class="row">
             <div class="col-25">
                 <label for="nome_categoria">Nome</label>

@@ -4,7 +4,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 
 <div class="container-cadastro-cat">
     <h1>Cadastro de Postagem</h1>
-    <form action="adiciona_postagem_controller.php" method="post" enctype="multipart/form-data">
+    <form action="/global_news/controllers/edita_postagem_controller.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_postagem" value="">
         <div class="row">
             <div class="col-25">

@@ -1,5 +1,12 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/db/conexao.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/categoria.php';
+
+try {
+    $lista_categorias = Categoria::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 
 ?>
 
@@ -61,7 +68,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/db/conexao.php';
                     <div class="dropdown">
                         <a>Categorias</a>
                         <div class="dropdown-content">
-                            <a href="/global_news/views/categorias.php?cat=#">Link 1</a>
+                            <?php foreach ($lista_categorias as $categoria) : ?>
+                                <a href="/global_news/views/categorias.php?categoria=<?= $categoria['nome_categoria'] ?>">
+                                    <?= $categoria['nome_categoria'] ?>
+                                </a>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </li>
