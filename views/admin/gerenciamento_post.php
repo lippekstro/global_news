@@ -4,7 +4,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 
 <section class="container-table">
     <table>
-        <caption>Gerenciamento de Categorias</caption>
+        <caption>Gerenciamento de Postagens</caption>
         <tr>
             <th>Título</th>
             <th>Autor</th>
