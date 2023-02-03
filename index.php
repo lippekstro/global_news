@@ -33,7 +33,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
         <div class="container-cards">
             <?php for ($i = 0; $i < 10; $i++) : ?>
                 <div class="card">
-                    <a href="">
+                    <a href="/global_news/views/noticia_aberta.php?id_post=#">
                         <img src="https://source.unsplash.com/random/1920x1080/?programming" width="100%" height="auto">
                         <div class="container">
                             <h4><b>John Doe</b></h4>

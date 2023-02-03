@@ -15,10 +15,10 @@ class Categoria
 
     public function editar()
     {
-        $query = "UPDATE categoria SET nome = :nome WHERE id_categoria = :id_categoria";
+        $query = "UPDATE categoria SET nome_categoria = :nome_categoria WHERE id_categoria = :id_categoria";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
-        $stmt->bindValue(":nome", $this->nome_categoria);
+        $stmt->bindValue(":nome_categoria", $this->nome_categoria);
         $stmt->bindValue(":id_categoria", $this->id_categoria);
 
         $stmt->execute();
@@ -37,7 +37,7 @@ class Categoria
     public static function listarPorNome($palavra)
     {
         $palavra = "%" . $palavra . "%";
-        $query = "select * from categoria where nome like :palavra";
+        $query = "select * from categoria where nome_categoria like :palavra";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(":palavra", $palavra);
@@ -48,10 +48,10 @@ class Categoria
 
     public function criar()
     {
-        $query = "INSERT INTO  categoria (nome) VALUES (:nome)";
+        $query = "INSERT INTO  categoria (nome_categoria) VALUES (:nome_categoria)";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
-        $stmt->bindValue(':nome', $this->nome_categoria);
+        $stmt->bindValue(':nome_categoria', $this->nome_categoria);
         $stmt->execute();
     }
 
@@ -66,7 +66,7 @@ class Categoria
 
     public function carregar()
     {
-        $query = "SELECT nome FROM Categoria 
+        $query = "SELECT nome_categoria FROM Categoria 
         WHERE id_categoria = :id_categoria";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
@@ -74,6 +74,6 @@ class Categoria
         $stmt->execute();
 
         $lista = $stmt->fetch();
-        $this->nome_categoria = $lista['nome'];
+        $this->nome_categoria = $lista['nome_categoria'];
     }
 }

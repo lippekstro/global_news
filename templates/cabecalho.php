@@ -39,10 +39,16 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/db/conexao.php';
                 </div>
             </form>
 
-            <div>
+            <div class="dropdown">
                 <a href="/global_news/views/admin/login.php">
                     <span class="material-symbols-outlined">login</span>
                 </a>
+                <div class="dropdown-content">
+                    <a href="/global_news/views/admin/gerenciamento_categoria.php">Gerenciamento de Categorias</a>
+                    <a href="/global_news/views/admin/gerenciamento_post.php">Gerenciamento de Postagens</a>
+                    <a href="/global_news/views/admin/gerenciamento_usuario.php">Gerenciamento de Usuários</a>
+                    <a href="/global_news/views/admin/logout.php">Logout</a>
+                </div>
             </div>
         </div>
 

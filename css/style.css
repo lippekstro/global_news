@@ -55,7 +55,9 @@ header a {
     margin: 0.5rem;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     border-radius: 10px;
     padding: 0.5rem;
     width: 100%;
@@ -143,6 +145,54 @@ section {
     background-color: #04AA6D;
 }
 
+.container-cadastro-cat form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-cadastro-cat h1 {
+    text-align: center;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+.row {
+    margin: 1rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.titulo h1 {
+    font-size: xx-large;
+}
+
+.container-autor {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.conteudo {
+    text-align: justify;
+    text-indent: 2rem;
+}
+
 footer {
     min-height: 10rem;
     background-color: var(--ter);
@@ -150,4 +200,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
 }

@@ -9,7 +9,7 @@ primary key (id_usuario)
 
 create table categoria (
 id_categoria int not null auto_increment,
-nome varchar(200) not null,
+nome_categoria varchar(200) not null,
 primary key (id_categoria)
 );
 
