@@ -18,12 +18,12 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
             <tr>
                 <td>Locais</td>
                 <td>
-                    <a href="">
+                    <a href="/global_news/views/admin/editar_categoria.php?id_categoria=#">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
                 </td>
                 <td>
-                    <a href="">
+                    <a href="/global_news/controllers/deleta_categoria_controller.php?id_categoria=#">
                         <span class="material-symbols-outlined">delete</span>
                     </a>
                 </td>

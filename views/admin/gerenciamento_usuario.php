@@ -22,12 +22,12 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
                 <td>Teste</td>
                 <td>teste@mail.com</td>
                 <td>
-                    <a href="">
+                    <a href="/global_news/views/admin/editar_usuario.php?id_usuario=#">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
                 </td>
                 <td>
-                    <a href="">
+                    <a href="/global_news/controllers/deleta_usuario_controller.php?id_usuario=#">
                         <span class="material-symbols-outlined">delete</span>
                     </a>
                 </td>
