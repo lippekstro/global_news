@@ -201,6 +201,7 @@ footer {
 
 #busca {
     transition: width 0.4s ease-in-out;
+    width: 50%;
 }
 
 #busca:focus {
@@ -234,6 +235,10 @@ footer {
     input[type=submit] {
         width: 100%;
         margin-top: 0;
+    }
+
+    #busca {
+        width: 100%;
     }
 
     .container-logo-busca-login {

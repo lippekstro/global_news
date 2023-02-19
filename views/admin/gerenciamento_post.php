@@ -21,6 +21,7 @@ try {
             <th>Título</th>
             <th>Autor</th>
             <th>Data</th>
+            <th>Categoria</th>
             <th colspan="2">
                 <a href="/global_news/views/admin/cadastrar_postagem.php">
                     <span class="material-symbols-outlined">add</span>
@@ -33,6 +34,7 @@ try {
                 <td><?= $post['titulo'] ?></td>
                 <td><?= $post['nome_autor'] ?></td>
                 <td><?= $post['data_pub'] ?></td>
+                <td><?= $post['nome_categoria'] ?></td>
                 <td>
                     <a href="/global_news/views/admin/editar_postagem.php?id_post=<?= $post['id_post'] ?>">
                         <span class="material-symbols-outlined">edit</span>

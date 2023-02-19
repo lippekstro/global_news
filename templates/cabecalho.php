@@ -36,11 +36,11 @@ try {
                 <img class="imagem-branca" src="/global_news/img/newspaper.svg" width="100%" height="auto">
             </div>
 
-            <form action="">
-                <div class="form-item">
-                    <input type="text" id="busca" name="busca" placeholder="busque uma noticia">
+            <form action="/global_news/views/categorias.php" style="width: 70%;" method="POST">
+                <div class="form-item" style="justify-content: center;">
+                    <input type="text" id="busca" name="busca" placeholder="Busque uma noticia">
                     <label for="busca">
-                        <button>
+                        <button type="submit">
                             <span class="material-symbols-outlined">search</span>
                         </button>
                     </label>
@@ -78,7 +78,7 @@ try {
                         <a>Categorias</a>
                         <div class="dropdown-content">
                             <?php foreach ($lista_categorias as $categoria) : ?>
-                                <a href="/global_news/views/categorias.php?categoria=<?= $categoria['nome_categoria'] ?>">
+                                <a href="/global_news/views/categorias.php?id_categoria=<?= $categoria['id_categoria'] ?>">
                                     <?= $categoria['nome_categoria'] ?>
                                 </a>
                             <?php endforeach; ?>

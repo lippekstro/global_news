@@ -39,7 +39,10 @@ try {
             <?php foreach ($lista as $post) : ?>
                 <div class="card">
                     <a href="/global_news/views/noticia_aberta.php?id_post=<?= $post['id_post'] ?>">
-                        <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($post['imagem']); ?>" alt="Noticia" width="100%" height="auto">
+                        <div class="img-card">
+                            <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($post['imagem']); ?>" alt="Noticia">
+                        </div>
+
                         <div class="container">
                             <h4><b><?= $post['titulo'] ?></b></h4>
                             <p>
