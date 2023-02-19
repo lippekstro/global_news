@@ -60,6 +60,31 @@ class Postagem
         $stmt->execute();
     }
 
+    public function editarComImagem()
+    {
+        $query = "UPDATE postagem SET titulo = :titulo, conteudo = :conteudo, id_categoria = :id_categoria, imagem = :imagem WHERE id_post = :id_post";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':titulo', $this->titulo);
+        $stmt->bindValue(':conteudo', $this->conteudo);
+        $stmt->bindValue(':id_categoria', $this->id_categoria);
+        $stmt->bindValue(':imagem', $this->imagem);
+        $stmt->bindValue(':id_post', $this->id_post);
+
+        $stmt->execute();
+    }
+
+    public function getNomeAutor()
+    {
+        $query = "SELECT nome_usuario FROM usuario WHERE id_usuario = :id_usuario";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->id_usuario);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['nome_usuario'];
+    }
+
     public static function listar()
     {
         $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,

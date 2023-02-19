@@ -1,5 +1,13 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/categoria.php';
+
+try {
+    $lista = Categoria::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
 ?>
 
 <div class="container-cadastro-cat">
@@ -19,9 +27,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
             </div>
             <div class="col-75">
                 <select id="categoria" name="categoria">
-                    <option value="esportes">Esportes</option>
-                    <option value="local">Local</option>
-                    <option value="economia">Economia</option>
+                    <?php foreach ($lista as $categoria) : ?>
+                        <option value="<?= $categoria['id_categoria'] ?>"><?= $categoria['nome_categoria'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>

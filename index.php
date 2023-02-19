@@ -1,5 +1,12 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/postagem.php';
+
+try {
+    $lista = Postagem::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 ?>
 
 <div>
@@ -28,36 +35,40 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
-    <section>
-        <h1>Últimas Notícias</h1>
-        <div class="container-cards">
-            <?php for ($i = 0; $i < 10; $i++) : ?>
-                <div class="card">
-                    <a href="/global_news/views/noticia_aberta.php?id_post=#">
-                        <img src="https://source.unsplash.com/random/1920x1080/?programming" width="100%" height="auto">
-                        <div class="container">
-                            <h4><b>John Doe</b></h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Libero, molestiae? Deleniti quam fugiat explicabo rem quo veritatis hic nam est ratione eius.
-                                Autem temporibus, at officiis iste reprehenderit atque odit?
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            <?php endfor; ?>
-        </div>
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
-    </section>
+    <?php if (count($lista) > 0) : ?>
+        <section>
+            <h1>Últimas Notícias</h1>
+            <div class="container-cards">
+                <?php foreach ($lista as $post) : ?>
+                    <div class="card">
+                        <a href="/global_news/views/noticia_aberta.php?id_post=<?= $post['id_post'] ?>">
+                            <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($post['imagem']); ?>" alt="Noticia" width="100%" height="auto">
+                            <div class="container">
+                                <h4><b><?= $post['titulo'] ?></b></h4>
+                                <p>
+                                    <?= $post['conteudo'] ?>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </section>
+    <?php else : ?>
+        <section>
+            <p>Não há notícias</p>
+        </section>
+    <?php endif; ?>
 </div>
 
 

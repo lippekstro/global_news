@@ -1,5 +1,13 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/postagem.php';
+
+try {
+    $lista = Postagem::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
 ?>
 
 <section class="container-table">
@@ -16,23 +24,23 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
             </th>
         </tr>
 
-        <?php for ($i = 0; $i < 4; $i++) : ?>
+        <?php foreach($lista as $post) : ?>
             <tr>
-                <td>Lorem Ipsum</td>
-                <td>Teste</td>
-                <td><?= date('today') ?></td>
+                <td><?= $post['titulo'] ?></td>
+                <td><?= $post['nome_autor'] ?></td>
+                <td><?= $post['data_pub'] ?></td>
                 <td>
-                    <a href="/global_news/views/admin/editar_postagem.php?id_post=#">
+                    <a href="/global_news/views/admin/editar_postagem.php?id_post=<?= $post['id_post'] ?>">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
                 </td>
                 <td>
-                    <a href="/global_news/controllers/deleta_postagem_controller.php?id_post=#">
+                    <a href="/global_news/controllers/deleta_postagem_controller.php?id_post=<?= $post['id_post'] ?>">
                         <span class="material-symbols-outlined">delete</span>
                     </a>
                 </td>
             </tr>
-        <?php endfor; ?>
+        <?php endforeach; ?>
     </table>
 </section>
 
