@@ -26,11 +26,15 @@ try {
         </section>
         <hr>
         <section class="conteudo">
-            <div>
+            <?php
+            $conteudo = $post->conteudo;
+            $texto_quebrado = explode("<br />", nl2br($conteudo));
+            foreach ($texto_quebrado as $paragrafo) :
+            ?>
                 <p>
-                    <?= $post->conteudo ?>
+                    <?= $paragrafo ?>
                 </p>
-            </div>
+            <?php endforeach; ?>
         </section>
     </article>
 </div>

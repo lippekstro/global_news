@@ -18,9 +18,9 @@
 }
 
 .img-card {
-    width: 100%; 
-    height: 10rem; 
-    display: flex; 
+    width: 100%;
+    height: 10rem;
+    display: flex;
     justify-content: center;
 }
 
@@ -34,12 +34,18 @@
     height: 10rem;
 }
 
-.container h4{
+.container h4 {
     text-align: center;
+    margin: 0 0 0.5rem 0;
 }
 
 .container p {
     text-align: justify;
+    display: -webkit-box; /* para funcionar o corte */
+    -webkit-line-clamp: 5; /* corte do texto em 5 linhas */
+    -webkit-box-orient: vertical; /* orientacao do texto para a vertical senao fica numa linha so */
+    overflow: hidden; /* oculta o texto */
+    text-overflow: ellipsis; /* e finaliza com reticencias */
 }
 
 .card a {

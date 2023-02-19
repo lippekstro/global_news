@@ -229,6 +229,10 @@ footer {
     background-color: var(--qua);
 }
 
+.material-symbols-outlined {
+    color: white;
+}
+
 @media screen and (max-width: 600px) {
     .col-25,
     .col-75,

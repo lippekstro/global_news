@@ -16,6 +16,9 @@ try {
                 <div class="mySlides fade">
                     <a href="/global_news/views/noticia_aberta.php?id_post=<?= $lista[$i]['id_post'] ?>">
                         <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($lista[$i]['imagem']); ?>" alt="Noticia" width="100%" height="auto">
+                        <div class="texto-foto">
+                            <p><?= $lista[$i]['titulo'] ?></p>
+                        </div>
                     </a>
                 </div>
             <?php endfor; ?>
