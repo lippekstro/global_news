@@ -140,14 +140,37 @@ class Postagem
     public function deletar()
     {
         $query = "DELETE FROM Postagem WHERE id_post=:id_post";
-        //deleta pelo id
         $conexao = Conexao::conectar();
-        // cria conexao
         $stmt = $conexao->prepare($query);
-        // prepara a query
         $stmt->bindValue("id_post", $this->id_post);
-        // vincula o valor
         $stmt->execute();
-        // executa
+    }
+
+    public static function contarLinhas($limite){
+        $query = "SELECT COUNT(*) FROM Postagem";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->execute();
+        $resultado = $stmt->fetchColumn();
+        $total_pages = ceil($resultado / $limite);
+        return $total_pages;
+    }
+
+    public static function listarPaginacao($limite, $deslocamento)
+    {
+        $query = "select p.id_post, p.titulo, p.conteudo, p.imagem, p.data_pub,
+        p.id_categoria, p.id_post,
+        c.nome_categoria as nome_categoria,
+        u.nome_usuario as nome_autor from postagem p
+        inner join categoria c on p.id_categoria = c.id_categoria
+        inner join usuario u on p.id_usuario = u.id_usuario
+        order by p.data_pub desc limit :limit offset :deslocamento";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindParam(':limit', $limite, PDO::PARAM_INT);
+        $stmt->bindParam(':deslocamento', $deslocamento, PDO::PARAM_INT);
+        $stmt->execute();
+        $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $lista;
     }
 }

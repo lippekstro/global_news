@@ -20,8 +20,8 @@ try {
                     <span><?= $post->data_pub ?></span>
                 </div>
             </div>
-            <div>
-                <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($post->imagem); ?>" alt="Noticia" width="100%" height="auto">
+            <div class="img-noticia-aberta">
+                <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($post->imagem); ?>" alt="Noticia">
             </div>
         </section>
         <hr>

@@ -188,6 +188,7 @@ section {
 .conteudo {
     text-align: justify;
     text-indent: 2rem;
+    font-size: larger;
 }
 
 footer {
@@ -233,6 +234,17 @@ footer {
     color: white;
 }
 
+.img-noticia-aberta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-noticia-aberta img {
+    width: 70%;
+    height: auto;
+}
+
 @media screen and (max-width: 600px) {
     .col-25,
     .col-75,
@@ -242,6 +254,10 @@ footer {
     }
 
     #busca {
+        width: 100%;
+    }
+
+    .img-noticia-aberta img {
         width: 100%;
     }
 

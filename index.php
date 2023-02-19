@@ -2,14 +2,29 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/postagem.php';
 
+$limite = 3; /* define quantos posts por pagina */
+
 try {
-    $lista = Postagem::listar();
+    $paginas = Postagem::contarLinhas($limite);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+if (isset($_GET['pagina'])) {
+    $pagina = $_GET['pagina'];
+} else {
+    $pagina = 1;
+}
+
+$comeca = ($pagina - 1) * $limite;
+try {
+    $lista = Postagem::listarPaginacao($limite, $comeca);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
 ?>
 
-<?php if (count($lista) > 3) : ?>
+<?php if (count($lista) > 2) : ?>
     <section>
         <div class="slideshow-container">
             <?php for ($i = 0; $i < 3; $i++) : ?>
@@ -57,14 +72,21 @@ try {
             <?php endforeach; ?>
         </div>
         <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
+            <?php if ($pagina == 1) : ?><!-- logica para a pagina 1 -->
+                <a href="index.php?pagina=<?= $pagina - 1 ?>" style="display: none;">&laquo;</a>
+            <?php else : ?>
+                <a href="index.php?pagina=<?= $pagina - 1 ?>">&laquo;</a>
+            <?php endif; ?>
+
+            <?php for ($i = 1; $i < $paginas + 1; $i++) : ?> <!-- gerador das paginas -->
+                <a class="active" href="index.php?pagina=<?= $i ?>"><?= $i ?></a>
+            <?php endfor; ?>
+
+            <?php if ($pagina == $paginas) : ?><!-- logica para ultima pagina -->
+                <a href="index.php?pagina=<?= $pagina + 1 ?>" style="display: none;">&raquo;</a>
+            <?php else : ?>
+                <a href="index.php?pagina=<?= $pagina + 1 ?>">&raquo;</a>
+            <?php endif; ?>
         </div>
     </section>
 <?php else : ?>
