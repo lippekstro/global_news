@@ -20,7 +20,7 @@ class Postagem
 
     public function carregar()
     {
-        $query = "SELECT titulo, conteudo, imagem, id_usuario, id_categoria, data_pub FROM Postagem where id_post = :id_post";
+        $query = "SELECT titulo, conteudo, imagem, id_usuario, id_categoria, data_pub FROM postagem where id_post = :id_post";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(":id_post", $this->id_post);
@@ -139,7 +139,7 @@ class Postagem
 
     public function deletar()
     {
-        $query = "DELETE FROM Postagem WHERE id_post=:id_post";
+        $query = "DELETE FROM postagem WHERE id_post=:id_post";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue("id_post", $this->id_post);
@@ -147,7 +147,7 @@ class Postagem
     }
 
     public static function contarLinhas($limite){
-        $query = "SELECT COUNT(*) FROM Postagem";
+        $query = "SELECT COUNT(*) FROM postagem";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->execute();
