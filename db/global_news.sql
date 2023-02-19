@@ -7,6 +7,8 @@ nivel_acesso int not null default 1,
 primary key (id_usuario)
 );
 
+INSERT INTO usuarios (nome_usuario, email, senha) VALUES ('Admin', 'admin@mail.com', '$2y$10$dE0FnEqee2fdxfKhWddFpOt55BgTw5oj7OsAq0xfXXyLBV1HKVVAi');
+
 create table categoria (
 id_categoria int not null auto_increment,
 nome_categoria varchar(200) not null,

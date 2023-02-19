@@ -1,5 +1,9 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
+
+if(!isset($_SESSION['usuario'])){
+    header('location: /global_news/index.php');
+}
 ?>
 
 <div class="container-cadastro-cat">

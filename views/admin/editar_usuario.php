@@ -2,6 +2,10 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/templates/cabecalho.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/global_news/models/usuario.php';
 
+if(!isset($_SESSION['usuario'])){
+    header('location: /global_news/index.php');
+}
+
 try {
     $id_usuario = $_GET['id_usuario'];
     $usuario = new Usuario($id_usuario);
